@@ -14,13 +14,13 @@ You can get the pdf and the png versions [here](https://github.com/randorisec/Mo
 # OWASP Mobile Security Testing Project
 
 ## Mobile Security Testing Guide
-(https://github.com/OWASP/owasp-mstg)[https://github.com/OWASP/owasp-mstg]
+[https://github.com/OWASP/owasp-mstg](https://github.com/OWASP/owasp-mstg)
 
 ## Mobile Application Security Verification Standard 
-(https://github.com/OWASP/owasp-masvs)[https://github.com/OWASP/owasp-masvs]
+[https://github.com/OWASP/owasp-masvs](https://github.com/OWASP/owasp-masvs)
 
 ## Mobile Security Checklist
-(https://github.com/OWASP/owasp-mstg/tree/master/Checklists)[https://github.com/OWASP/owasp-mstg/tree/master/Checklists] 
+[https://github.com/OWASP/owasp-mstg/tree/master/Checklists](https://github.com/OWASP/owasp-mstg/tree/master/Checklists])
 
 # Android CheatSheet
 
