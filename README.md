@@ -211,7 +211,7 @@ To tamper an APK file, the foolowing steps should be performed:
     apktool b <directory_output> -o <new_APK_file> 
     ```
 
-1. Sign the APK (see [Application Signing](application-signing))
+1. Sign the APK (see [Application Signing](#application-signing))
 
 1. (Optional) Use `zipalign` to provide optimization to the APK file
 
@@ -327,7 +327,7 @@ From Android 7, the Android system no longer trusts the user supplied CA certifi
 
 In order to tamper the targeted Android application, we are going to add or modify the network security configuration file. This file on recent Android versions allows to force the application to trust the user supplied CA certificates. The following steps should be performed:
 
-1. Install the Burpsuite's CA certificate on your Android device (see [Before Android 7](before-android-7))
+1. Install the Burpsuite's CA certificate on your Android device (see [Before Android 7](#before-android-7))
 1. Disassemble the targeted app (APK file) with `apktool`
 1. Add or modify the `network_security_config.xml` file (usually on `res/xml/` folder). The content of the file should be:
 
@@ -348,7 +348,7 @@ In order to tamper the targeted Android application, we are going to add or modi
     <application android:name="AppName" android:networkSecurityConfig="@xml/network_security_config">
     ```
 
-1. Build the modified app with `apktool` and then sign the newly created APK file (see [Application Signing](application-signing))
+1. Build the modified app with `apktool` and then sign the newly created APK file (see [Application Signing](#application-signing))
 
 ### Content Provider
 
