@@ -426,6 +426,7 @@ Data directory
 ### Default password
 
 By default the root password on your jailbroken iOS device is ```alpine```
+
 If you've changed it and want to reset it:
 
 1. Open ```/etc/passwd``` or ```/private/etc/master.passwd``` with a file manager app (e.g. iFile/Fileza)
@@ -557,7 +558,7 @@ ios hooking set return_value "-[<Class_name> <Method_name>]" true
 Impactor (http://www.cydiaimpactor.com) let you display the NSLog (syslog) on command line
 
 ```bash
-# ./Impactor idevicesyslog -u <UDID>
+./Impactor idevicesyslog -u <UDID>
 ```
 
 ### SSL Interception with BurpSuite
