@@ -390,42 +390,51 @@ adb shell am start -n <package_name/activity_name> -a <intent_action> --es <para
 
 ### Filesystem
 
-* App list database
+App list database
 
 ```bash
 /User/Library/FrontBoard/applicationState.db 
 ```
 
-* Binary directory: include all the static resources of the app
+Binary directory: include all the static resources of the app
 
 ```bash
 /private/var/containers/Bundle/Application/UUID/App.app 
 ```
 
-* Path of the binary (executable)
+Path of the binary (executable)
 
 ```bash
 /private/var/containers/Bundle/Application/UUID/App.app/App
 ```
 
-* App metadata: configuration of the app (icon to display, supported document types, etc.)
+App metadata: configuration of the app (icon to display, supported document types, etc.)
 
 ```bash
 /private/var/containers/Bundle/Application/UUID/App.app/Info.plist
 ```
 
-* Data directory
+Data directory
 
 ```bash
 /private/var/mobile/Containers/Data/Application/Data-UUID
 ```
 
-*UUID (Universally Unique Identifier): random 36 alphanumeric characters string unique to the app
-Data-UUID: random 36 alphanumeric characters string unique to the app*
+*UUID (Universally Unique Identifier): random 36 alphanumeric characters string unique to the app*
+*Data-UUID: random 36 alphanumeric characters string unique to the app*
+
+### Default password
+
+By default the root password on your jailbroken iOS device is ```alpine```
+If you've changed it and want to reset it:
+
+1. Open ```/etc/passwd``` or ```/private/etc/master.passwd``` with a file manager app (e.g. iFile/Fileza)
+2. Change the hash to: ```/smx7MYTQIi2M```
+3. root password will be ```alpine```
 
 ### Bundle ID
 
-* The bundle ID represents the app’s unique identifier (e.g. for YouTube)
+The bundle ID (aka package name) represents the app’s unique identifier (e.g. for YouTube)
 
 ```
 com.google.ios.youtube
@@ -444,7 +453,7 @@ iPhone:~ root# grep -r <App_name> /private/var/*
 By launching Frida with the ios-app-info script
 
 ```bash
-# frida -U <App_name> -c dki/ios-app-info
+frida -U <App_name> -c dki/ios-app-info
 ```
 
 And then
@@ -479,16 +488,16 @@ sqlite> select * from application_identifier_tab;
 
 ### Dynamic analysis with Frida
 
-List all processes
+List running processes
 
 ```bash
-# frida-ps –U
+frida-ps –U
 ```
 
 Analyse the calls to a method by launching Frida with the objc-method-observer script
 
 ```bash
-# frida -U <App_name> –c mrmacete/objc-method-observer
+frida -U <App_name> –c mrmacete/objc-method-observer
 ```
 
 And then using the command ```observeSomething```
@@ -500,7 +509,7 @@ And then using the command ```observeSomething```
 Hook the calls to the method <Method_name>
 
 ```bash
-# frida-trace -U <App_name> -m "-[* <Method_name>*]"
+frida-trace -U <App_name> -m "-[* <Method_name>*]"
 ```
 
 Then open the JavaScript handler file to edit the ```onEnter``` or ```onLeave``` functions to manipulate the behavior of the app
@@ -568,9 +577,9 @@ Impactor (http://www.cydiaimpactor.com) let you display the NSLog (syslog) on co
 Download and install SSL Kill Switch 2 tweak
 
 ```bash
-# wget https://github.com/nabla-c0d3/ssl-kill-switch2/releases/download/0.14/com.nablac0d3.sslkillswitch2_0.14.deb
-# dpkg -i com.nablac0d3.sslkillswitch2_0.14.deb
-# killall -HUP SpringBoard 
+wget https://github.com/nabla-c0d3/ssl-kill-switch2/releases/download/0.14/com.nablac0d3.sslkillswitch2_0.14.deb
+dpkg -i com.nablac0d3.sslkillswitch2_0.14.deb
+killall -HUP SpringBoard 
 ```
 
 Go to “Settings->SSL Kill Switch 2” to ”Disable Certificate Validation”
@@ -579,30 +588,30 @@ Go to “Settings->SSL Kill Switch 2” to ”Disable Certificate Validation”
 
 UDID is a string that is used to identify a device. Needed for some operations like signature, app installation, network monitoring.
 
-* Get UDID with MacOS
+* Get the UDID with MacOS
 
 ```bash
-# idevice_id –l
+idevice_id –l
 ```
 
 or
 
 ```bash
-# ioreg -p IOUSB -l | grep "USB Serial"
+ioreg -p IOUSB -l | grep "USB Serial"
 ```
 
 or by launching Impactor without parameters
 
-* Get UDID with Linux
+* Get the UDID with Linux
 
 ```bash
-# usbfluxctl list 
+usbfluxctl list 
 ```
 
 or
 
 ```bash
-# lsusb -s :`lsusb | grep iPhone | cut -d ' ' -f 4 | sed 's/://'` -v | grep iSerial | awk '{print $3}'
+lsusb -s :`lsusb | grep iPhone | cut -d ' ' -f 4 | sed 's/://'` -v | grep iSerial | awk '{print $3}'
 ```
 
 or by launching Impactor without parameters
@@ -612,14 +621,14 @@ or by launching Impactor without parameters
 * With MacOS (install Xcode and additional tools and connect the device with USB)
 
 ```bash
-# rvictl -s <UDID>
-# tcpdump or tshark or wireshark –i rvi0
+rvictl -s <UDID>
+tcpdump or tshark or wireshark –i rvi0
 ```
 
 * With Linux (get https://github.com/gh2o/rvi_capture and connect the device with USB) (works with iOS <= 12)
 
 ```bash
-# ./rvi_capture.py --udid <UDID> iPhone.pcap
+./rvi_capture.py --udid <UDID> iPhone.pcap
 ```
 
 ### Sideloading an app
@@ -632,31 +641,31 @@ Here’s the process to do it with IPAPatch:
 Clone the IPAPatch project
 
 ```bash
-# git clone https://github.com/Naituw/IPAPatch
+git clone https://github.com/Naituw/IPAPatch
 ```
 
 Move the IPA of the app you want to sideload to the Assets directory
 
 ```bash
-# mv <IPAfile> IPAPatch/Assets/
+mv <IPAfile> IPAPatch/Assets/
 ```
 
 Download the FridaGadget library (in Assets/Dylibs/FridaGadget.dylib)
 
 ```bash
-# curl -O https://build.frida.re/frida/ios/lib/FridaGadget.dylib
+curl -O https://build.frida.re/frida/ios/lib/FridaGadget.dylib
 ```
 
 Select the identity to sign the app
 
 ```bash
-# security find-identity -p codesigning –v
+security find-identity -p codesigning –v
 ```
 
 Sign FridaGadget library
 
 ```bash
-# codesign -f -s <IDENTITY> FridaGadget.dylib
+codesign -f -s <IDENTITY> FridaGadget.dylib
 ```
 
 Then open IPAPatch Xcode project, Build and Run.
@@ -666,11 +675,11 @@ Then open IPAPatch Xcode project, Build and Run.
 Here’s the process to do it with Objection (detailed steps on https://github.com/sensepost/objection/wiki/Patching-iOS-Applications)
 
 ```bash
-# security find-identity -p codesigning –v
-# objection patchipa --source <IPAfile> --codesign-signature <IDENTITY>
-# unzip <patchedIPAfile>
-# ios-deploy --bundle Payload/my-app.app -W –d
-# objection explore
+security find-identity -p codesigning –v
+objection patchipa --source <IPAfile> --codesign-signature <IDENTITY>
+unzip <patchedIPAfile>
+ios-deploy --bundle Payload/my-app.app -W –d
+objection explore
 ```
 
 ### Data Protection Class
@@ -687,7 +696,7 @@ Four levels are provided by iOS to encrypt automatically files on the device:
 By launching Frida with the ios-dataprotection script
 
 ```bash
-# frida -U <App_name> -c ay-kay/ios-dataprotection
+frida -U <App_name> -c ay-kay/ios-dataprotection
 ```
 
 ## License
