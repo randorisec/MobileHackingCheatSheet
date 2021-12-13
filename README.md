@@ -31,7 +31,7 @@ And the PNG versions:
 
 ### Mobile Security Checklist
 
-[https://github.com/OWASP/owasp-mstg/tree/master/Checklists](https://github.com/OWASP/owasp-mstg/tree/master/Checklists])
+[https://github.com/OWASP/owasp-mstg/tree/master/Checklists](https://github.com/OWASP/owasp-mstg/tree/master/Checklists)
 
 ## Android CheatSheet
 
