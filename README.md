@@ -626,7 +626,7 @@ rvictl -s <UDID>
 tcpdump or tshark or wireshark –i rvi0
 ```
 
-* With Linux (get https://github.com/gh2o/rvi_capture and connect the device with USB) (works with iOS <= 12)
+* With Linux or Windows (get https://github.com/gh2o/rvi_capture and connect the device with USB)
 
 ```bash
 ./rvi_capture.py --udid <UDID> iPhone.pcap
