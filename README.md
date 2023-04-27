@@ -2,15 +2,10 @@
 
 The Mobile Hacking CheatSheet is an attempt to summarise a few interesting basics info regarding tools and commands needed to assess the security of Android and iOS mobile applications.
 
-You can get the PDF versions:
+PDF versions:
 
-* [Mobile Hacking iOS CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/pdf/Mobile_Hacking_iOS_cheatsheet_v1.0.pdf)
-* [Mobile Hacking Android CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/pdf/Mobile_Hacking_Android_cheatsheet_v1.0.pdf)
-
-And the PNG versions:
-
-* [Mobile Hacking iOS CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/LEGACY.md#ios-cheatsheet)
-* [Mobile Hacking Android CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/LEGACY.md#android-cheatsheet)
+* [Mobile Hacking Android CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/pdf/RANDORISEC_Mobile_Hacking_Android_Assessing_Apps_cheatsheet_v1.1.pdf)
+* [Mobile Hacking iOS CheatSheet](https://github.com/randorisec/MobileHackingCheatSheet/blob/master/pdf/RANDORISEC_Mobile_Hacking_iOS_Assessing_Apps_cheatsheet_v1.1.pdf)
 
 ## Main Steps
 
