@@ -16,17 +16,13 @@ PDF versions:
 
 ## OWASP Mobile Security Testing Project
 
-### Mobile Security Testing Guide
+### OWASP Mobile Application Security Testing Guide
 
-[https://github.com/OWASP/owasp-mstg](https://github.com/OWASP/owasp-mstg)
+[https://github.com/OWASP/owasp-mastg](https://github.com/OWASP/owasp-mastg)
 
 ### Mobile Application Security Verification Standard 
 
 [https://github.com/OWASP/owasp-masvs](https://github.com/OWASP/owasp-masvs)
-
-### Mobile Security Checklist
-
-[https://github.com/OWASP/owasp-mstg/tree/master/Checklists](https://github.com/OWASP/owasp-mstg/tree/master/Checklists)
 
 ## Android CheatSheet
 
