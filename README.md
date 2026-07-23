@@ -305,6 +305,7 @@ objection patchapk --source <APK_file>
 
 References:
 
+* [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - Open source (GPL-3.0) autonomous AI penetration testing platform covering web, API, Active Directory and Kubernetes, with proof of exploitation.
 * [Configuring an Android device to work with Burp](https://portswigger.net/support/configuring-an-android-device-to-work-with-burp)
 * [Installing BurpSuite's CA certificate in an Android device](https://portswigger.net/support/installing-burp-suites-ca-certificate-in-an-android-device)
 
